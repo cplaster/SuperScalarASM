@@ -1,4 +1,41 @@
 ﻿-------------------------------------------------------------------------------------------------------------------
+@cplaster 2024-03-11 10:00
+The assember and ISA has been updated per changes up to and including episode #30.
+This consists of the implementation of the ALU in digital and the corresponding instructions
+(add, addc, sub, subc) in the assembler.
+
+Also created a github repository which includes both this project as well as the entire Digital directory for the 
+simulator, including a LOT of dead files. Its a mess, but I'm going to leave it like that for posterity.
+The relevant working simulation files can be found in /Digital/rev 02/
+
+The working simulation is found at (Digital/rev 02/build 2.dig).
+The assembler can be run by doing ./SuperScalarASM.exe [pathTo/SourceFile].
+Assuming the assembly source is valid, the assembler will emit 3 different files:
+
+sourceFile.IL - This is a generated list of the program's addresses, and the instructions (little-endian) at those
+				addresses. Mainly useful for debugging the assembler.
+
+sourceFile.BIN - This is a generated binary that is intended to be used with an EEPROM or Flash ROM.
+				 The assembler does not yet zero-padding to arbitrary sizes.
+
+sourceFile.HEX - This is a generated hex file that is intended to be use by Digital's EEPROMS. The file should be 
+				 manually loaded into the EEPROM module found in /rev 02/eeprom.dig
+
+TODO:
+
+	* The assembler doesn't complain enough (or at all) if we fail to fully implement an instruction.
+	* Add support for zero-padding .BIN files to an arbitrary length.
+	* Add command line flags to specifically generate the .IL, .BIN, and .HEX files
+	* Add command line option for specifying output directory for said generated files.
+	* Change the layout of IL files to be a bit more human readable. Specifically we should shoot for a format
+		similar to the command line output of the assembler. One thing to note is that numbers defined in the 
+		assembly source get converted to their decimal representations, and this is probably better left as
+		whatever format is actually in the assembly source.
+	* Update both the simulation and assembler up to and including episode #32.
+
+		
+
+-------------------------------------------------------------------------------------------------------------------
 @cplaster 2023-05-09 20:36
 The current Digital simulation was not updated to use the full 16-bit PC and PM, this has been fixed, per
 build 2.dig
