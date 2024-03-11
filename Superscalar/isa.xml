@@ -1,0 +1,24 @@
+<instruction name="nop" template="00000000 00000000">
+	<operands count="0" /> 
+</instruction>
+
+<instruction name="ldi" template="iiiiiiii dddd1000">
+	<operands count="2">
+		<operand type="Register" value="dddd" />
+		<operand type="Immediate" value="iiiiiiii" />
+	</operands>
+</instruction>
+
+
+<instruction name="mov" template="0000ssss dddd0000">
+	<operands count="2">
+		<operand type="Register" value="dddd" />
+		<operand type="Register" value="ssss" />
+	</operands>
+</instruction>
+
+<instruction name="jreli" template="">
+	<operands count="1">
+	
+	</operands>
+</instruction>

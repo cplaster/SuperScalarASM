@@ -1,0 +1,32 @@
+0018	ldi r0, 0x00
+0120	mv r1, r0
+100A	jabsi 0x10
+	
+0x10:
+F018	ldi r0, 0xF0
+5528	ldi r1, 0x55
+0618	ldi r0, 6
+0101	jrelr r0 # +6
+0000	nop
+0000	nop
+4018	ldi r0, 0x40
+0102	jabsr r0 # 0x40
+	
+0x40:
+0118	ldi r0, 0x01
+0218	ldi r0, 0x02
+0418	ldi r0, 0x04
+0818	ldi r0, 0x08
+1018	ldi r0, 0x10
+2018	ldi r0, 0x20
+4018	ldi r0, 0x40
+8018	ldi r0, 0x80
+8018	ldi r0, 0x80
+4018	ldi r0, 0x40
+2018	ldi r0, 0x20
+1018	ldi r0, 0x10
+0818	ldi r0, 0x08
+0418	ldi r0, 0x04
+0218	ldi r0, 0x02
+0118	ldi r0, 0x01
+E009	jreli -32 # 0x40
